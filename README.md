@@ -1,5 +1,7 @@
 ---
+name: "What The Duck"
 fontUrl: "https://fonts.googleapis.com/css?family=Quicksand:400,500"
+fonts:
   primary: |
     The primary typeface represents a fun and lighthearted theme that expresses the quirky and childlike nature of the brand. This typeface will be found throughout the entire website, to express confidence.
 
