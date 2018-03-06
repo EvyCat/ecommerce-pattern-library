@@ -26,3 +26,12 @@ h2 {
 cite {
   font-weight: 500;
 }
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+mark {
+  background-color: var(--color-primary);
+}

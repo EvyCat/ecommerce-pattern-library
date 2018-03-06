@@ -5,7 +5,7 @@ fonts:
   primary: |
     The primary typeface represents a fun and lighthearted theme that expresses the quirky and childlike nature of the brand. This typeface will be found throughout the entire website, to express confidence.
 
-Colors:
+colors:
   primary: |
     The primary color is bright and eye catching, it backs up our brands values by being bold, but light. Use them for buttons and emphasis.
   neutral: |
@@ -13,3 +13,4 @@ Colors:
   text-color: |
     The text color is simply to be used for body copy to enhance readability.
 ---
+These colors represent our brand and how our customers live their lives, bright and vibrant!

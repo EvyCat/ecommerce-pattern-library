@@ -1,0 +1,9 @@
+li {
+  display:inline-block;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+nav {
+  text-align: center;
+}
