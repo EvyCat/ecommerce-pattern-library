@@ -1,9 +1,44 @@
 li {
   display:inline-block;
-  color: var(--color-text);
   text-decoration: none;
 }
 
 nav {
   text-align: center;
+}
+
+a {
+  color: var(--color-text);
+}
+
+nav li svg {
+  stroke: var(--color-text);
+}
+
+nav li:hover,
+nav li:hover >a,
+nav li:hover svg {
+  color: var(--color-primary);
+  stroke: var(--color-primary);
+}
+
+.drop-down {
+  max-height: 0;
+  transition: all .5s linear;
+  overflow: hidden;
+  position: absolute;
+  padding-left: 0;
+}
+
+ nav li:hover>.drop-down {
+max-height: 15em;
+ }
+
+ul{
+  color: var(--color-text);
+}
+
+.drop-down li {
+  display: block;
+  text-align: left;
 }

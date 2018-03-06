@@ -348,9 +348,9 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library
- * @version 1520353335714
+ * @version 1520358739232
  */
-const patternManifest_1520353335713 = {
+const patternManifest_1520358739232 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -488,8 +488,9 @@ const patternManifest_1520353335713 = {
       }
     },
     "icons": [
-      "facebook-256",
       "cart-256",
+      "dropdown",
+      "facebook-256",
       "google-256",
       "search-256",
       "twitter-256"
@@ -650,7 +651,14 @@ const patternManifest_1520353335713 = {
           "localPath": "patterns/nav/nav.html"
         }
       ],
-      "md": [],
+      "md": [
+        {
+          "name": "readme",
+          "namePretty": "Readme",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/nav/README.md",
+          "localPath": "patterns/nav/README.md"
+        }
+      ],
       "css": [
         {
           "name": "nav",
@@ -681,5 +689,5 @@ const patternManifest_1520353335713 = {
   }
 };
 
-patternBotIncludes(patternManifest_1520353335713);
+patternBotIncludes(patternManifest_1520358739232);
 }());
