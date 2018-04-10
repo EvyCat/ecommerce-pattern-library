@@ -101,7 +101,6 @@ const patternBotIncludes = function (manifest) {
     for (i = 0; i < t; i++) {
       if (rootMatcher.test(allScripts[i].src)) {
         return allScripts[i].src.split(rootMatcher)[0];
-        break;
       }
     }
   };
@@ -143,7 +142,7 @@ const patternBotIncludes = function (manifest) {
     let patternInfoJson;
     const data = patternElem.innerText.trim();
 
-    if (!data) return {}
+    if (!data) return {};
 
     try {
       patternInfoJson = JSON.parse(data);
@@ -172,9 +171,50 @@ const patternBotIncludes = function (manifest) {
     };
   };
 
+  const correctHrefPaths = function (html) {
+    const hrefSearch = /href\s*=\s*"\.\.\/\.\.\//g;
+    const srcSearch = /src\s*=\s*"\.\.\/\.\.\//g;
+    const urlSearch = /url\((["']*)\.\.\/\.\.\//g;
+
+    return html
+      .replace(hrefSearch, 'href="../')
+      .replace(srcSearch, 'src="../')
+      .replace(urlSearch, 'url($1../')
+    ;
+  };
+
+  const buildAccurateSelectorFromElem = function (elem) {
+    let theSelector = elem.tagName.toLowerCase();
+
+    if (elem.id) theSelector += `#${elem.id}`;
+    if (elem.getAttribute('role')) theSelector += `[role="${elem.getAttribute('role')}"]`;
+    if (elem.classList.length > 0) theSelector += `.${[].join.call(elem.classList, '.')}`;
+
+    theSelector += ':first-of-type';
+
+    return theSelector;
+  };
+
+  /**
+   * This is an ugly mess: Blink does not properly render SVGs when using DOMParser alone.
+   * But, I need DOMParser to determine the correct element to extract.
+   *
+   * I only want to get the first element within the `<body>` tag of the loaded document.
+   * This dumps the whole, messy, HTML document into a temporary `<div>`,
+   * then uses the DOMParser version, of the same element, to create an accurate selector,
+   * then finds that single element in the temporary `<div>` using the selector and returns it.
+   */
   const htmlStringToElem = function (html) {
+    let theSelector = '';
+    const tmpDoc = document.createElement('div');
+    const finalTmpDoc = document.createElement('div');
     const doc = (new DOMParser()).parseFromString(html, 'text/html');
-    return doc.body;
+
+    tmpDoc.innerHTML = html;
+    theSelector = buildAccurateSelectorFromElem(doc.body.firstElementChild);
+    finalTmpDoc.appendChild(tmpDoc.querySelector(theSelector));
+
+    return finalTmpDoc;
   };
 
   const replaceElementValue = function (elem, sel, data) {
@@ -197,7 +237,7 @@ const patternBotIncludes = function (manifest) {
 
     if (!patternDetails.html) return;
 
-    patternOutElem = htmlStringToElem(patternDetails.html);
+    patternOutElem = htmlStringToElem(correctHrefPaths(patternDetails.html));
     patternData = getPatternInfo(patternElem);
 
     Object.keys(patternData).forEach((sel) => {
@@ -234,7 +274,7 @@ const patternBotIncludes = function (manifest) {
   };
 
   const hideLoadingScreen = function () {
-    const allDownloadedInterval = setInterval(() => {
+    let allDownloadedInterval = setInterval(() => {
       if (Object.values(downloadedAssets).includes(false)) return;
 
       clearInterval(allDownloadedInterval);
@@ -272,7 +312,7 @@ const patternBotIncludes = function (manifest) {
           if (resp.status >= 200 && resp.status <= 299) {
             return resp.text();
           } else {
-            console.group('Cannot location pattern');
+            console.group('Cannot locate pattern');
             console.log(resp.url);
             console.log(`Error ${resp.status}: ${resp.statusText}`);
             console.groupEnd();
@@ -348,23 +388,26 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library
- * @version 1520358739232
+ * @version 1523303867341
  */
-const patternManifest_1520358739232 = {
+const patternManifest_1523303867340 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
       "images",
+      "list-group",
       "embed",
       "media-object",
       "icons",
+      "hidden",
       "positioning",
+      "nice-lists",
       "forms",
       "buttons",
       "accessibility",
       "print"
     ],
-    "modulifierUrl": "responsive;images;embed;media-object;icons;positioning;forms;buttons;accessibility;print",
+    "modulifierUrl": "responsive;images;list-group;embed;media-object;icons;hidden;positioning;nice-lists;forms;buttons;accessibility;print",
     "gridifier": [
       {
         "prefix": "xs",
@@ -485,11 +528,13 @@ const patternManifest_1520358739232 = {
           "primary": 0,
           "opposite": 255
         }
-      }
+      },
+      "bodyRaw": "These colors represent our brand and how our customers live their lives, bright and vibrant!\n",
+      "bodyBasic": "These colors represent our brand and how our customers live their lives, bright and vibrant!"
     },
     "icons": [
+      "drop-down",
       "cart-256",
-      "dropdown",
       "facebook-256",
       "google-256",
       "search-256",
@@ -521,14 +566,76 @@ const patternManifest_1520358739232 = {
       "sizeLargeLocal": "logo.svg"
     },
     "patterns": [
+      "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/banner",
       "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/buttons",
       "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/cards",
+      "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/footer",
       "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/forms",
-      "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/nav"
+      "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/header"
     ],
-    "pages": []
+    "pages": [
+      {
+        "name": "form.html",
+        "namePretty": "Form",
+        "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/pages/form.html"
+      },
+      {
+        "name": "home.html",
+        "namePretty": "Home",
+        "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/pages/home.html"
+      },
+      {
+        "name": "product-info.html",
+        "namePretty": "Product info",
+        "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/pages/product-info.html"
+      },
+      {
+        "name": "product-list.html",
+        "namePretty": "Product list",
+        "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/pages/product-list.html"
+      }
+    ]
   },
   "userPatterns": [
+    {
+      "name": "banner",
+      "namePretty": "Banner",
+      "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/banner",
+      "html": [
+        {
+          "name": "banner",
+          "namePretty": "Banner",
+          "filename": "banner",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/banner/banner.html",
+          "localPath": "patterns/banner/banner.html"
+        },
+        {
+          "name": "heading",
+          "namePretty": "Heading",
+          "filename": "heading",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/banner/heading.html",
+          "localPath": "patterns/banner/heading.html"
+        }
+      ],
+      "md": [
+        {
+          "name": "readme",
+          "namePretty": "Readme",
+          "filename": "README",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/banner/README.md",
+          "localPath": "patterns/banner/README.md"
+        }
+      ],
+      "css": [
+        {
+          "name": "banner",
+          "namePretty": "Banner",
+          "filename": "banner",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/banner/banner.css",
+          "localPath": "patterns/banner/banner.css"
+        }
+      ]
+    },
     {
       "name": "buttons",
       "namePretty": "Buttons",
@@ -537,6 +644,7 @@ const patternManifest_1520358739232 = {
         {
           "name": "buttons",
           "namePretty": "Buttons",
+          "filename": "buttons",
           "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/buttons/buttons.html",
           "localPath": "patterns/buttons/buttons.html"
         }
@@ -545,6 +653,7 @@ const patternManifest_1520358739232 = {
         {
           "name": "readme",
           "namePretty": "Readme",
+          "filename": "README",
           "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/buttons/README.md",
           "localPath": "patterns/buttons/README.md"
         }
@@ -553,6 +662,7 @@ const patternManifest_1520358739232 = {
         {
           "name": "buttons",
           "namePretty": "Buttons",
+          "filename": "buttons",
           "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/buttons/buttons.css",
           "localPath": "patterns/buttons/buttons.css"
         }
@@ -566,18 +676,21 @@ const patternManifest_1520358739232 = {
         {
           "name": "basic-card",
           "namePretty": "Basic card",
+          "filename": "basic-card",
           "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/cards/basic-card.html",
           "localPath": "patterns/cards/basic-card.html"
         },
         {
-          "name": "icon-card",
-          "namePretty": "Icon card",
-          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/cards/icon-card.html",
-          "localPath": "patterns/cards/icon-card.html"
+          "name": "card",
+          "namePretty": "Card",
+          "filename": "card",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/cards/card.html",
+          "localPath": "patterns/cards/card.html"
         },
         {
           "name": "product-card",
           "namePretty": "Product card",
+          "filename": "product-card",
           "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/cards/product-card.html",
           "localPath": "patterns/cards/product-card.html"
         }
@@ -586,6 +699,7 @@ const patternManifest_1520358739232 = {
         {
           "name": "readme",
           "namePretty": "Readme",
+          "filename": "README",
           "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/cards/README.md",
           "localPath": "patterns/cards/README.md"
         }
@@ -594,8 +708,41 @@ const patternManifest_1520358739232 = {
         {
           "name": "cards",
           "namePretty": "Cards",
+          "filename": "cards",
           "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/cards/cards.css",
           "localPath": "patterns/cards/cards.css"
+        }
+      ]
+    },
+    {
+      "name": "footer",
+      "namePretty": "Footer",
+      "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/footer",
+      "html": [
+        {
+          "name": "footer",
+          "namePretty": "Footer",
+          "filename": "footer",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/footer/footer.html",
+          "localPath": "patterns/footer/footer.html"
+        }
+      ],
+      "md": [
+        {
+          "name": "readme",
+          "namePretty": "Readme",
+          "filename": "README",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/footer/README.md",
+          "localPath": "patterns/footer/README.md"
+        }
+      ],
+      "css": [
+        {
+          "name": "footer",
+          "namePretty": "Footer",
+          "filename": "footer",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/footer/footer.css",
+          "localPath": "patterns/footer/footer.css"
         }
       ]
     },
@@ -607,24 +754,42 @@ const patternManifest_1520358739232 = {
         {
           "name": "checkbox",
           "namePretty": "Checkbox",
+          "filename": "checkbox",
           "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/forms/checkbox.html",
           "localPath": "patterns/forms/checkbox.html"
         },
         {
+          "name": "drop-down-expire",
+          "namePretty": "Drop down expire",
+          "filename": "drop-down-expire",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/forms/drop-down-expire.html",
+          "localPath": "patterns/forms/drop-down-expire.html"
+        },
+        {
+          "name": "drop-down-month",
+          "namePretty": "Drop down month",
+          "filename": "drop-down-month",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/forms/drop-down-month.html",
+          "localPath": "patterns/forms/drop-down-month.html"
+        },
+        {
           "name": "drop-down",
           "namePretty": "Drop down",
+          "filename": "drop-down",
           "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/forms/drop-down.html",
           "localPath": "patterns/forms/drop-down.html"
         },
         {
           "name": "radial-check-box",
           "namePretty": "Radial check box",
+          "filename": "radial-check-box",
           "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/forms/radial-check-box.html",
           "localPath": "patterns/forms/radial-check-box.html"
         },
         {
           "name": "standard",
           "namePretty": "Standard",
+          "filename": "standard",
           "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/forms/standard.html",
           "localPath": "patterns/forms/standard.html"
         }
@@ -634,37 +799,41 @@ const patternManifest_1520358739232 = {
         {
           "name": "forms",
           "namePretty": "Forms",
+          "filename": "forms",
           "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/forms/forms.css",
           "localPath": "patterns/forms/forms.css"
         }
       ]
     },
     {
-      "name": "nav",
-      "namePretty": "Nav",
-      "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/nav",
+      "name": "header",
+      "namePretty": "Header",
+      "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/header",
       "html": [
         {
-          "name": "nav",
-          "namePretty": "Nav",
-          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/nav/nav.html",
-          "localPath": "patterns/nav/nav.html"
+          "name": "header",
+          "namePretty": "Header",
+          "filename": "header",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/header/header.html",
+          "localPath": "patterns/header/header.html"
         }
       ],
       "md": [
         {
           "name": "readme",
           "namePretty": "Readme",
-          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/nav/README.md",
-          "localPath": "patterns/nav/README.md"
+          "filename": "README",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/header/README.md",
+          "localPath": "patterns/header/README.md"
         }
       ],
       "css": [
         {
-          "name": "nav",
-          "namePretty": "Nav",
-          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/nav/nav.css",
-          "localPath": "patterns/nav/nav.css"
+          "name": "header",
+          "namePretty": "Header",
+          "filename": "header",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/header/header.css",
+          "localPath": "patterns/header/header.css"
         }
       ]
     }
@@ -689,5 +858,5 @@ const patternManifest_1520358739232 = {
   }
 };
 
-patternBotIncludes(patternManifest_1520358739232);
+patternBotIncludes(patternManifest_1523303867340);
 }());

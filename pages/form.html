@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+  <meta charset="utf-8">
+  <title>Form</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="../common/patternbot.js"></script>
+</head>
+<body>
+
+  <script type="application/json" data-pattern="header/header"></script>
+
+  <script type="application/json" data-pattern="banner/heading">
+  {
+    "h1" : "Checkout"
+  }
+  </script>
+
+<main>
+  <div class="grid">
+    <div class="unit xs-1 s-1 m-1-2 l-1-2 push-r gutter-2 pad-0">
+      <h1 class="gutter">Shipping</h1>
+        <script type="application/json" data-pattern="forms/standard">
+          {
+            "h2" : "Full Name"
+          }
+        </script>
+
+
+        <script type="application/json" data-pattern="forms/standard">
+          {
+            "h2" : "Adress"
+          }
+        </script>
+
+        <script type="application/json" data-pattern="forms/drop-down">
+        {
+          "h2" : "Province"
+        }
+
+        </script>
+
+        <script type="application/json" data-pattern="forms/standard">
+        {
+          "h2" : "City"
+        }
+        </script>
+
+        <script type="application/json" data-pattern="forms/standard">
+        {
+          "h2" : "Zip Code"
+        }
+        </script>
+
+        <script type="application/json" data-pattern="forms/standard">
+        {
+          "h2" : "City"
+        }
+        </script>
+
+    </div>
+    <div class="shipping unit xs-1 s-1 m-1-2 l-1-2 push-r gutter-2 pad-0">
+      <h1 class="gutter">Billing</h1>
+        <script type="application/json" data-pattern="forms/standard">
+          {
+            "h2" : "Full Name"
+          }
+        </script>
+
+
+        <script type="application/json" data-pattern="forms/standard">
+          {
+            "h2" : "Adress"
+          }
+        </script>
+
+        <script type="application/json" data-pattern="forms/drop-down">
+        {
+          "h2" : "Province"
+        }
+
+        </script>
+
+        <script type="application/json" data-pattern="forms/standard">
+        {
+          "h2" : "City"
+        }
+        </script>
+
+        <script type="application/json" data-pattern="forms/standard">
+        {
+          "h2" : "Zip Code"
+        }
+        </script>
+
+        <script type="application/json" data-pattern="forms/standard">
+        {
+          "h2" : "City"
+        }
+        </script>
+    </div>
+    <div class="shipping unit xs-1 s-1 m-1-2 l-1-2 push-r gutter-2 pad-0">
+      <h1 class="gutter">Payment Method</h1>
+        <script type="application/json" data-pattern="forms/standard">
+          {
+            "h2" : "Full Name"
+          }
+        </script>
+
+        <script type="application/json" data-pattern="forms/radial-check-box">
+          {
+            "h2" : "Card Type"
+          }
+        </script>
+
+        <script type="application/json" data-pattern="forms/standard">
+          {
+            "h2" : "Card Number"
+          }
+        </script>
+
+      <script type="application/json" data-pattern="forms/drop-down-expire">
+      {
+        "h2" : "Expiry Date"
+      }
+      </script>
+    <script type="application/json" data-pattern="forms/drop-down-month"></script>
+
+    <div class="unit xs-1 s-1 m-1 l-1 text-right gutter-2 pad-b-2 pad-t-2">
+      <a class="btn" href="#">Confirm Purchase</a>
+    </div>
+
+    </script>
+    </div>
+
+
+  </div>

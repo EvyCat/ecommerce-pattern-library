@@ -1,0 +1,19 @@
+.banner-text{
+  background-color: transparent;
+  color: #efefef;
+}
+
+.banner {
+  max-height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner h1{
+  color: #efefef;
+}
+
+.rule {
+  border-top: 3px solid var(--color-text);
+  border-bottom: 3px solid var(--color-text);
+}

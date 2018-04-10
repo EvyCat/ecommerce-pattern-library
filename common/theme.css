@@ -35,3 +35,17 @@ a {
 mark {
   background-color: var(--color-primary);
 }
+
+.border-right {
+  position: relative;
+}
+
+.border-right::after {
+  border-right: 3px solid var(--color-text);
+  height: 300px;
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}

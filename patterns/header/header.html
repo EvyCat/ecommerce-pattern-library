@@ -2,26 +2,42 @@
 <html lang="en-ca">
 <head>
   <meta charset="utf-8">
-  <title>Navigation</title>
+  <title>header</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="../../common/modules.css" rel="stylesheet">
   <link href="../../common/grid.css" rel="stylesheet">
   <link href="../../common/type.css" rel="stylesheet">
   <link href="../../common/theme.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet">
-  <link href="nav.css" rel="stylesheet">
+  <link href="header.css" rel="stylesheet">
 </head>
 <body>
   <header>
+    <div class="text-center pad-top">
+      <div class="logo icon i-128">
+          <img src="../../images/logo.svg">
+      </div>
+      <ul class="list-group-inline pin-rt push-r pad-t">
+      <li>
+        <i class="icon i-18  patternbot-color-body">
+          <svg><use xlink:href="../../images/icons.svg#search-256" /></svg>
+        </i>
+      </li>
+      <li>
+        <i class="icon i-18  patternbot-color-body">
+          <svg><use xlink:href="../../images/icons.svg#cart-256" /></svg>
+        </i>
+      </li>
+    </ul>
     <div>
       <div>
         <nav class="nav">
-          <ul class="push-0">
+          <ul class="push-0 list-group">
             <li class="giga  island-1-2"><a href="#">Home</a></li>
             <li class="giga island-1-2">
               <a href="#">Collections</a>
               <i class="icon i-18 patternbot-color-body">
-                <svg><use xlink:href="../../images/icons.svg#dropdown" /></svg>
+                <svg><use xlink:href="../../images/icons.svg#drop-down" /></svg>
               </i>
               <ul class="drop-down mega">
                 <li><a href="#">Holiday</a></li>
@@ -35,9 +51,9 @@
             <li class="giga  island-1-2"><a href="#">About Us</a></li>
             <li class="giga  island-1-2"><a href="#">Customer Service</a></li>
             <li class="giga  island-1-2">
-              <a href="#">Collections</a>
+              <a href="#">Customer Service</a>
               <i class="icon i-18 patternbot-color-body">
-                <svg><use xlink:href="../../images/icons.svg#dropdown" /></svg>
+                <svg><use xlink:href="../../images/icons.svg#drop-down" /></svg>
               </i>
               <ul class="drop-down mega">
                 <li><a href="#">Shipping & Tracking</a></li>
@@ -45,6 +61,7 @@
               </ul>
             <li class="giga gutter-1-2 island-1-2"><a href="#">Contact</a></li>
           </ul>
+
         </nav>
       </div>
     </div>

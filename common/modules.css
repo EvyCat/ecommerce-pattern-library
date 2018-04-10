@@ -1,7 +1,7 @@
 /*
  * Modulifier || Code released under the UNLICENSE
  * Code under other copyrights & licenses listed below.
- * https://modulifier.web-dev.tools/#responsive;images;embed;media-object;icons;positioning;forms;buttons;accessibility;print
+ * https://modulifier.web-dev.tools/#responsive;images;list-group;embed;media-object;icons;hidden;positioning;nice-lists;forms;buttons;accessibility;print
  */
 
 @-moz-viewport { width: device-width; scale: 1; }
@@ -103,6 +103,46 @@ svg.img-flex {
   text-align: left;
   text-indent: 100%;
   white-space: nowrap;
+}
+
+.list-group, .list-group-inline, .list-group--inline {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.list-group > dd {
+  margin-left: 0;
+}
+
+.list-group-inline::before,
+.list-group-inline::after,
+.list-group--inline::before,
+.list-group--inline::after {
+  content: "";
+  display: table;
+}
+
+.list-group-inline::after,
+.list-group--inline::after {
+  clear: both;
+}
+
+.list-group-inline > li,
+.list-group--inline > li {
+  display: inline-block;
+}
+
+.list-group-inline > dt,
+.list-group--inline > dt {
+  clear: left;
+  float: left;
+  width: 11em;
+}
+
+.list-group-inline > dd,
+.list-group--inline > dd {
+  float: left;
+  min-width: 12em;
 }
 
 .embed {
@@ -271,6 +311,59 @@ svg.img-flex {
 .icon-link:focus,
 .icon-link:hover {
   text-decoration: none;
+}
+
+[hidden], .hidden {
+  /* stylelint-disable declaration-no-important */
+  display: none !important;
+  visibility: hidden !important;
+  /* stylelint-enable */
+}
+
+.visually-hidden {
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+.visually-hidden.focusable:active, .visually-hidden.focusable:focus {
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+  clip: auto;
+  clip-path: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.chop,
+.crop {
+  overflow: hidden;
+}
+
+.truncate {
+  max-width: 100%;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scrollable {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .clearfix::after {
@@ -528,6 +621,38 @@ svg.img-flex {
 .height-win-full, .h-w-1 {
   height: 100vh;
   max-height: 46em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul > li::before {
+  content: "·";
+  float: left;
+  margin-left: -1.6em;
+  width: 1.3em;
+  text-align: right;
+}
+
+ol {
+  counter-reset: ol-simple-numbers;
+  list-style-type: none;
+}
+
+ol > li::before {
+  float: left;
+  margin-left: -1.6em;
+  width: 1.3em;
+  counter-increment: ol-simple-numbers;
+  content: counter(ol-simple-numbers);
+  text-align: right;
+}
+
+.list-group > li::before,
+.list-group-inline > li::before,
+.list-group--inline > li::before {
+  content: none;
 }
 
 /* stylelint-disable no-descending-specificity */
