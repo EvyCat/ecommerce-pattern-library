@@ -34,16 +34,7 @@ p {
   color: var(--color-text);
 }
 
-.absolute {
-  top: 500px;
-  left: 600px;
-}
-
-.embed-item-2 {
-  width: 40%;
-  left: -135px;
-}
 
 .email-field-2 {
-  max-width: 15%;
+  width: 3em;
 }
