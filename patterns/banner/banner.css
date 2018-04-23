@@ -18,6 +18,6 @@
   border-bottom: 3px solid var(--color-text);
 }
 
-p {
+.banner p {
   color: #efefef;
 }
