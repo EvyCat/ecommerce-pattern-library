@@ -388,9 +388,9 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library
- * @version 1523380259730
+ * @version 1524523430676
  */
-const patternManifest_1523380259730 = {
+const patternManifest_1524523430676 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -642,11 +642,32 @@ const patternManifest_1523380259730 = {
       "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/buttons",
       "html": [
         {
+          "name": "button-light",
+          "namePretty": "Button light",
+          "filename": "button-light",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/buttons/button-light.html",
+          "localPath": "patterns/buttons/button-light.html"
+        },
+        {
           "name": "buttons",
           "namePretty": "Buttons",
           "filename": "buttons",
           "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/buttons/buttons.html",
           "localPath": "patterns/buttons/buttons.html"
+        },
+        {
+          "name": "ghost-button",
+          "namePretty": "Ghost button",
+          "filename": "ghost-button",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/buttons/ghost-button.html",
+          "localPath": "patterns/buttons/ghost-button.html"
+        },
+        {
+          "name": "standard-button",
+          "namePretty": "Standard button",
+          "filename": "standard-button",
+          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/buttons/standard-button.html",
+          "localPath": "patterns/buttons/standard-button.html"
         }
       ],
       "md": [
@@ -858,5 +879,5 @@ const patternManifest_1523380259730 = {
   }
 };
 
-patternBotIncludes(patternManifest_1523380259730);
+patternBotIncludes(patternManifest_1524523430676);
 }());

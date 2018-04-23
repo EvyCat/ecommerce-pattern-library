@@ -17,3 +17,7 @@
   border-top: 3px solid var(--color-text);
   border-bottom: 3px solid var(--color-text);
 }
+
+p {
+  color: #efefef;
+}
