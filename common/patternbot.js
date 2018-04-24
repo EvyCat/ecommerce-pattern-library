@@ -388,9 +388,9 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library
- * @version 1524525488280
+ * @version 1524584057834
  */
-const patternManifest_1524525488280 = {
+const patternManifest_1524584057834 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -649,13 +649,6 @@ const patternManifest_1524525488280 = {
           "localPath": "patterns/buttons/button-light.html"
         },
         {
-          "name": "buttons",
-          "namePretty": "Buttons",
-          "filename": "buttons",
-          "path": "/Users/evelynhopky/Documents/GitHub/ecommerce-pattern-library/patterns/buttons/buttons.html",
-          "localPath": "patterns/buttons/buttons.html"
-        },
-        {
           "name": "ghost-button",
           "namePretty": "Ghost button",
           "filename": "ghost-button",
@@ -879,5 +872,5 @@ const patternManifest_1524525488280 = {
   }
 };
 
-patternBotIncludes(patternManifest_1524525488280);
+patternBotIncludes(patternManifest_1524584057834);
 }());

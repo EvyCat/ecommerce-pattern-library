@@ -1,5 +1,5 @@
 li {
-  display:inline-block;
+  display: inline-block;
   text-decoration: none;
 }
 
@@ -32,11 +32,11 @@ nav li:hover svg {
   background-color: white;
 }
 
- nav li:hover>.drop-down {
-max-height: 15em;
- }
+nav li:hover > .drop-down {
+  max-height: 15em;
+}
 
-ul{
+ul {
   color: var(--color-text);
   text-decoration: none;
 }

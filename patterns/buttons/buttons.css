@@ -22,10 +22,9 @@
 }
 
 .btn-light:hover {
-background-color: var(--color-text);
+  background-color: var(--color-text);
 }
 
 .btn-ghost:hover {
   background-color: var(--color-primary);
-
 }

@@ -972,7 +972,6 @@
       <nav class="pattern-nav">
         <ol class="list-group-inline push-1-4 pad-b-1-4">
             <li><a href="#buttons--button-light">Button light</a></li>
-            <li><a href="#buttons--buttons">Buttons</a></li>
             <li><a href="#buttons--ghost-button">Ghost button</a></li>
             <li><a href="#buttons--standard-button">Standard button</a></li>
         </ol>
@@ -1048,69 +1047,6 @@
                 </i>
               </button>
               <code><pre id="buttons-button-light-code-sample-copy-chunk">&lt;a class="btn btn-light" href="#"&gt;Light button&lt;/a>
-</pre></code>
-            </div>
-          </div>
-      </div>
-    </div>
-    <div class="pattern-details " id="buttons--buttons" style="">
-        <div class="pattern-toolbar pattern-toolbar-inner relative gutter pad-t-1-4 pad-b-1-4" style="">
-          <h3 class="pattern-name tera push-1-8">Buttons</h3>
-            <ul class="list-group-inline gutter absolute pin-cr">
-                <li>
-                  <button class="center-contents-vertical pattern-tool-btn pattern-code-btn" title="Show code" aria-label="Show code" aria-pressed="false" aria-controls="buttons-buttons-code-sample">
-                    <i class="icon i-18">
-                      <svg><use xlink:href="#icon-code"></use></svg>
-                    </i>
-                  </button>
-                </li>
-                <li>
-                  <button class="center-contents-vertical pattern-tool-btn pattern-include-btn" title="Copy include" aria-label="Copy include" data-copy-include-pattern="buttons/buttons" hidden>
-                    <i class="icon i-18">
-                      <svg><use xlink:href="#icon-copy"></use></svg>
-                    </i>
-                  </button>
-                </li>
-                <li>
-                  <a class="btn center-contents-vertical pattern-tool-btn pattern-pop-btn" href="patterns/buttons/buttons.html" target="_blank" title="Open pattern in a new tab" aria-label="Open pattern in a new tab">
-                    <i class="icon i-18">
-                      <svg><use xlink:href="#icon-pop-out"></use></svg>
-                    </i>
-                  </a>
-                </li>
-            </ul>
-        </div>
-
-      <div class="pattern-examples pad-t-1-2 pad-b-1-2" style="">
-        <div class="gutter-2 pad-t-1-2 pad-b-1-2">
-          <div class="resizeable-pattern relative" style="">
-            <i class="icon i-32 patternbot-iframe-loading-gears absolute pin-c"><svg><use xlink:href="#patternbot-iframe-loading-gears"></use></svg></i>
-            <iframe data-src="patterns/buttons/buttons.html" scrolling="no" data-inject-css=" " ></iframe>
-              <div class="resizeable-pattern-length">
-                <div class="resize-handle resize-handle-left" style="">
-                  <i class="icon i-18">
-                    <svg><use xlink:href="#icon-resize-handle" /></svg>
-                  </i>
-                </div>
-                <div class="resize-handle resize-handle-right" style="">
-                  <i class="icon i-18">
-                    <svg><use xlink:href="#icon-resize-handle" /></svg>
-                  </i>
-                </div>
-              </div>
-          </div>
-        </div>
-
-          <div class="pattern-code-wrap gutter pad-t-1-2 pad-b-1-2" hidden aria-hidden="true" id="buttons-buttons-code-sample" tabindex="-1">
-            <div class="pattern-code relative milli island-1-2" style="">
-              <button class="center-contents-vertical pattern-tool-btn pattern-copy-btn absolute pin-tr" title="Copy code" aria-label="Copy code" data-clipboard-target="#buttons-buttons-code-sample-copy-chunk" hidden>
-                <i class="icon i-18">
-                  <svg><use xlink:href="#icon-copy"></use></svg>
-                </i>
-              </button>
-              <code><pre id="buttons-buttons-code-sample-copy-chunk">&lt;a class="btn" href="#"&gt;Standard button&lt;/a>
-&lt;a class="btn btn-light" href="#">Light button&lt;/a>
-&lt;a class="btn btn-ghost" href="#">Ghost button&lt;/a>
 </pre></code>
             </div>
           </div>
@@ -1258,6 +1194,7 @@
 <ul>
 <li>The Basic Card is to be used on the home page after the banner</li>
 <li>The Product Card is to be used on the product listing page in a grid</li>
+<li>The Card is to be used on the product info page</li>
 </ul>
 </div>
     </div>
@@ -1386,19 +1323,21 @@
                   <svg><use xlink:href="#icon-copy"></use></svg>
                 </i>
               </button>
-              <code><pre id="cards-card-code-sample-copy-chunk">&lt;div class="push-0"&gt;
-  &lt;div class="island-2 gutter-2">
-    &lt;h1 class="push-0">Dracula Duck&lt;/h1>
-    &lt;h2> $14.99&lt;/h2>
-    &lt;p>The Dracula Themed duck is our staple halloween duck, and one of best selling ducks. Perfect gift for someone who loves all things spooky, of for anyone who loves halloween as much as we do!&lt;/p>
-    &lt;div class="email-field-2 pad-t pad-b">
-      &lt;h2>Quantity&lt;/h2>
-      &lt;label for="email">&lt;/label>
-      &lt;input class "quantity"type="0" placeholder="0" id="email" aria-describedby="0" required>
+              <code><pre id="cards-card-code-sample-copy-chunk">&lt;main role="main" id="main" tabindex="0"&gt;
+  &lt;div class="push-0">
+    &lt;div class="island-2 gutter-2">
+      &lt;h1 class="push-0">Dracula Duck&lt;/h1>
+      &lt;h2> $14.99&lt;/h2>
+      &lt;p>The Dracula Themed duck is our staple halloween duck, and one of best selling ducks. Perfect gift for someone who loves all things spooky, of for anyone who loves halloween as much as we do!&lt;/p>
+      &lt;div class="email-field-2 pad-t pad-b">
+        &lt;h2>Quantity&lt;/h2>
+        &lt;label for="email">&lt;/label>
+        &lt;input class="quantity" id="email">
+      &lt;/div>
+      &lt;a class="btn" href="../../pages/form.html">Add to Cart&lt;/a>
     &lt;/div>
-    &lt;a class="btn" href="../../pages/form.html">Add to Cart&lt;/a>
   &lt;/div>
-&lt;/div>
+&lt;/main>
 </pre></code>
             </div>
           </div>
@@ -1538,51 +1477,32 @@
                   <svg><use xlink:href="#icon-copy"></use></svg>
                 </i>
               </button>
-              <code><pre id="footer-footer-code-sample-copy-chunk">&lt;html lang="en-ca"&gt;
-&lt;head>
-  &lt;meta charset="utf-8">
-  &lt;title>footer&lt;/title>
-  &lt;meta name="viewport" content="width=device-width,initial-scale=1">
-  &lt;link href="../../common/modules.css" rel="stylesheet">
-  &lt;link href="../../common/grid.css" rel="stylesheet">
-  &lt;link href="../../common/type.css" rel="stylesheet">
-  &lt;link href="../../common/theme.css" rel="stylesheet">
-  &lt;link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet">
-  &lt;link href="footer.css" rel="stylesheet">
-  &lt;link href="../buttons/buttons.css" rel="stylesheet">
-&lt;/head>
-
-&lt;head>
-  &lt;footer class="footer">
-    &lt;div>
-      &lt;div class="unit">
-        &lt;ul class="grid xs-1-2 s-1-2 m-1 l-1 list-group-inline gutter-1-2 pad-t-1-2 push-0 pad-b-1">
-          &lt;li>
-            &lt;i class="icon i-64">
-          &lt;svg>&lt;use xlink:href="../../images/icons.svg#facebook-256"/>&lt;/svg>
-        &lt;/i>
-          &lt;/li>
-          &lt;li>
-            &lt;i class="icon i-64">
-          &lt;svg>&lt;use xlink:href="../../images/icons.svg#google-256"/>&lt;/svg>
-        &lt;/i>
-          &lt;/li>
-          &lt;li>
-            &lt;i class="icon i-64">
-          &lt;svg>&lt;use xlink:href="../../images/icons.svg#twitter-256"/>&lt;/svg>
-        &lt;/i>
-          &lt;/li>
-        &lt;/ul>
-        &lt;div class="copy-right push-0 gutter-1-2 micro pad-t-1-4 pad-b-1">
-          &lt;p>What the Duck &lt;i class="bold">All Rights Resevred&lt;/i> &#xA9; 2018 E.H.&lt;/p>
-        &lt;/div>
+              <code><pre id="footer-footer-code-sample-copy-chunk">&lt;footer class="footer" role="contentinfo"&gt;
+  &lt;div>
+    &lt;div class="unit">
+      &lt;ul class="grid xs-1-2 s-1-2 m-1 l-1 list-group-inline gutter-1-2 pad-t-1-2 push-0 pad-b-1">
+        &lt;li>
+          &lt;i class="icon i-64">
+            &lt;svg>&lt;use xlink:href="../../images/icons.svg#facebook-256"/>&lt;/svg>
+          &lt;/i>
+        &lt;/li>
+        &lt;li>
+          &lt;i class="icon i-64">
+            &lt;svg>&lt;use xlink:href="../../images/icons.svg#google-256"/>&lt;/svg>
+          &lt;/i>
+        &lt;/li>
+        &lt;li>
+          &lt;i class="icon i-64">
+            &lt;svg>&lt;use xlink:href="../../images/icons.svg#twitter-256"/>&lt;/svg>&lt;/i>
+        &lt;/li>
+      &lt;/ul>
+      &lt;div class="copy-right push-0 gutter-1-2 micro pad-t-1-4 pad-b-1">
+        &lt;p>What the Duck &lt;i class="bold">All Rights Resevred&lt;/i> &#xA9; 2018 E.H.&lt;/p>
       &lt;/div>
-
     &lt;/div>
+  &lt;/div>
 
-  &lt;/footer>
-&lt;/head>
-&lt;/html>
+&lt;/footer>
 </pre></code>
             </div>
           </div>
@@ -1665,7 +1585,7 @@
                 </i>
               </button>
               <code><pre id="forms-checkbox-code-sample-copy-chunk">&lt;div class=" island-2"&gt;
-  &lt;h2 class="Terms &amp; Conditions"> Do you agree to our Terms and Conditions?&lt;/h2>
+  &lt;h2 class="terms &amp; conditions"> Do you agree to our Terms and Conditions?&lt;/h2>
   &lt;input id="agree" required type="checkbox" name="valid">
   &lt;label for="agree">Agree&lt;/label>
 &lt;/div>
@@ -1731,8 +1651,8 @@
               </button>
               <code><pre id="forms-drop-down-expire-code-sample-copy-chunk">&lt;div class="island"&gt;
   &lt;h2>Title&lt;/h2>
-  &lt;label class="push-1-8 absolute" for="Year">&lt;/label>
-  &lt;select id="Year" placeholder="Year" name="Year" required>
+  &lt;label class="push-1-8 absolute">&lt;/label>
+  &lt;select id="year" name="Year" required>
     &lt;option value="">Select a Year&lt;/option>
     &lt;option>2018&lt;/option>
     &lt;option>2019&lt;/option>
@@ -1804,8 +1724,8 @@
                 </i>
               </button>
               <code><pre id="forms-drop-down-month-code-sample-copy-chunk">&lt;div class="island"&gt;
-  &lt;label class="push-1-8 realtive" for="Month">&lt;/label>
-  &lt;select id="Month" placeholder="Month" name="Month" required>
+  &lt;label class="push-1-8 realtive" for="month">&lt;/label>
+  &lt;select id="month" name="month" required>
     &lt;option value="">Select a Month&lt;/option>
     &lt;option>January&lt;/option>
     &lt;option>Freburary&lt;/option>
@@ -1884,7 +1804,7 @@
               <code><pre id="forms-drop-down-code-sample-copy-chunk">&lt;div class="island"&gt;
   &lt;h2>Title&lt;/h2>
   &lt;label class="push-1-8" for="province">&lt;/label>
-  &lt;select id="province" placeholder="The province your city is in" name="province" required>
+  &lt;select id="province" name="province" required>
     &lt;option value="">Select a province&lt;/option>
     &lt;option>Alberta&lt;/option>
     &lt;option>British Columbia&lt;/option>
@@ -2030,11 +1950,13 @@
                   <svg><use xlink:href="#icon-copy"></use></svg>
                 </i>
               </button>
-              <code><pre id="forms-standard-code-sample-copy-chunk">&lt;div class="email-field island"&gt;
-  &lt;h2>Title&lt;/h2>
-  &lt;label for="email">&lt;/label>
-  &lt;input type="email" placeholder="your_email@mail.com" id="email" aria-describedby="email-error" required>
-&lt;/div>
+              <code><pre id="forms-standard-code-sample-copy-chunk">&lt;main role="main" id="main" tabindex="0"&gt;
+  &lt;div class="email-field island">
+    &lt;h2>Title&lt;/h2>
+    &lt;label for="email">&lt;/label>
+    &lt;input type="email" placeholder="your_email@mail.com" id="email" required>
+  &lt;/div>
+&lt;/main>
 </pre></code>
             </div>
           </div>
@@ -2107,63 +2029,68 @@
                   <svg><use xlink:href="#icon-copy"></use></svg>
                 </i>
               </button>
-              <code><pre id="header-header-code-sample-copy-chunk">&lt;header&gt;
-  &lt;div class="text-center pad-top">
-    &lt;div class="logo icon i-128">
-      &lt;img src="../../images/logo.svg">
-    &lt;/div>
-    &lt;ul class="list-group-inline pin-rt push-r pad-t">
-      &lt;li>
-        &lt;i class="icon i-18  patternbot-color-body">
-          &lt;svg>&lt;use xlink:href="../../images/icons.svg#search-256"/>&lt;/svg>
-        &lt;/i>
-      &lt;/li>
-      &lt;li>
-        &lt;i class="icon i-18  patternbot-color-body">
-          &lt;svg>&lt;use xlink:href="../../images/icons.svg#cart-256"/>&lt;/svg>
-        &lt;/i>
-      &lt;/li>
-    &lt;/ul>
-    &lt;div>
+              <code><pre id="header-header-code-sample-copy-chunk">&lt;div&gt;
+  &lt;ul class="skip-links">
+    &lt;li>&lt;a href="#nav">Skip to navigation&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="#main">Skip to the main content&lt;/a>&lt;/li>
+  &lt;/ul>
+  &lt;header role="banner">
+    &lt;div class="text-center pad-top">
+      &lt;div class="logo icon i-128">
+        &lt;img src="../../images/logo.svg" alt="">
+      &lt;/div>
+      &lt;ul class="list-group-inline pin-rt push-r pad-t">
+        &lt;li>
+          &lt;i class="icon i-18 patternbot-color-body">
+            &lt;svg>&lt;use xlink:href="../../images/icons.svg#search-256"/>&lt;/svg>
+          &lt;/i>
+        &lt;/li>
+        &lt;li>
+          &lt;i class="icon i-18 patternbot-color-body">
+            &lt;svg>&lt;use xlink:href="../../images/icons.svg#cart-256"/>&lt;/svg>
+          &lt;/i>
+        &lt;/li>
+      &lt;/ul>
       &lt;div>
-        &lt;nav class="nav">
-          &lt;ul class="push-0 list-group">
-            &lt;li class="giga  island-1-2">&lt;a href="../../pages/home.html">Home&lt;/a>&lt;/li>
-            &lt;li class="giga island-1-2">
-              &lt;a href="../../pages/product-list.html">Collections&lt;/a>
-              &lt;i class="icon i-18 patternbot-color-body">
-                &lt;svg>&lt;use xlink:href="../../images/icons.svg#drop-down"/>&lt;/svg>
-              &lt;/i>
-              &lt;ul class="drop-down mega">
-                &lt;li>&lt;a href="#">Holiday&lt;/a>&lt;/li>
-                &lt;li>&lt;a href="#">Animals&lt;/a>&lt;/li>
-                &lt;li>&lt;a href="#">Countries&lt;/a>&lt;/li>
-                &lt;li>&lt;a href="#">Classic&lt;/a>&lt;/li>
-                &lt;li>&lt;a href="#">Celebrity&lt;/a>&lt;/li>
-                &lt;li>&lt;a href="#">Bridal&lt;/a>&lt;/li>
-                &lt;li>&lt;a href="#">Professions&lt;/a>&lt;/li>
-              &lt;/ul>
-            &lt;/li>
-            &lt;li class="giga  island-1-2">&lt;a href="#">About Us&lt;/a>&lt;/li>
-            &lt;li class="giga  island-1-2">&lt;a href="#">Customer Service&lt;/a>&lt;/li>
-            &lt;li class="giga  island-1-2">
-              &lt;a href="#">Customer Service&lt;/a>
-              &lt;i class="icon i-18 patternbot-color-body">
-                &lt;svg>&lt;use xlink:href="../../images/icons.svg#drop-down"/>&lt;/svg>
-              &lt;/i>
-              &lt;ul class="drop-down mega">
-                &lt;li>&lt;a href="#">Shipping &amp; Tracking&lt;/a>&lt;/li>
-                &lt;li>&lt;a href="#">Returns &amp; Exchanges&lt;/a>&lt;/li>
-              &lt;/ul>
-            &lt;/li>
-            &lt;li class="giga gutter-1-2 island-1-2">&lt;a href="#">Contact&lt;/a>&lt;/li>
-          &lt;/ul>
-
-        &lt;/nav>
+        &lt;div>
+          &lt;nav class="nav" role="navigation" id="nav" tabindex="0">
+            &lt;ul class="push-0 list-group">
+              &lt;li class="giga island-1-2">&lt;a href="../../pages/home.html">Home&lt;/a>&lt;/li>
+              &lt;li class="giga island-1-2">
+                &lt;a href="../../pages/product-list.html">Collections&lt;/a>
+                &lt;i class="icon i-18 patternbot-color-body">
+                  &lt;svg>&lt;use xlink:href="../../images/icons.svg#drop-down"/>&lt;/svg>
+                &lt;/i>
+                &lt;ul class="drop-down mega">
+                  &lt;li>&lt;a href="#">Holiday&lt;/a>&lt;/li>
+                  &lt;li>&lt;a href="#">Animals&lt;/a>&lt;/li>
+                  &lt;li>&lt;a href="#">Countries&lt;/a>&lt;/li>
+                  &lt;li>&lt;a href="#">Classic&lt;/a>&lt;/li>
+                  &lt;li>&lt;a href="#">Celebrity&lt;/a>&lt;/li>
+                  &lt;li>&lt;a href="#">Bridal&lt;/a>&lt;/li>
+                  &lt;li>&lt;a href="#">Professions&lt;/a>&lt;/li>
+                &lt;/ul>
+              &lt;/li>
+              &lt;li class="giga island-1-2">&lt;a href="#">About Us&lt;/a>&lt;/li>
+              &lt;li class="giga island-1-2">&lt;a href="#">Customer Service&lt;/a>&lt;/li>
+              &lt;li class="giga island-1-2">
+                &lt;a href="#">Customer Service&lt;/a>
+                &lt;i class="icon i-18 patternbot-color-body">
+                  &lt;svg>&lt;use xlink:href="../../images/icons.svg#drop-down"/>&lt;/svg>
+                &lt;/i>
+                &lt;ul class="drop-down mega">
+                  &lt;li>&lt;a href="#">Shipping &amp; Tracking&lt;/a>&lt;/li>
+                  &lt;li>&lt;a href="#">Returns &amp; Exchanges&lt;/a>&lt;/li>
+                &lt;/ul>
+              &lt;/li>
+              &lt;li class="giga gutter-1-2 island-1-2">&lt;a href="#">Contact&lt;/a>&lt;/li>
+            &lt;/ul>
+          &lt;/nav>
+        &lt;/div>
       &lt;/div>
     &lt;/div>
-  &lt;/div>
-&lt;/header>
+  &lt;/header>
+&lt;/div>
 </pre></code>
             </div>
           </div>
